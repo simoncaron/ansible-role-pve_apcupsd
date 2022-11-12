@@ -1,0 +1,19 @@
+---
+# defaults file for pve_pve_apcupsd
+pve_apcupsd_ups_name: ""
+
+pve_apcupsd_ups_cable: usb
+
+pve_apcupsd_ups_type: usb
+
+pve_apcupsd_device: ""
+
+pve_apcupsd_on_battery_delay: "6"
+
+pve_apcupsd_ups_battery_level: "5"
+
+pve_apcupsd_ups_minutes: "3"
+
+pve_apcupsd_nisip: 127.0.0.1
+
+pve_apcupsd_monitored_hosts: []

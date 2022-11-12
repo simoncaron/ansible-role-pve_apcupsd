@@ -1,0 +1,35 @@
+---
+- name: Install apcupsd
+  ansible.builtin.package:
+    name: apcupsd
+    state: present
+
+- name: Copy apcupsd configuration file
+  ansible.builtin.template:
+    src: apcupsd.conf.j2
+    dest: /etc/apcupsd/apcupsd.conf
+    mode: "0644"
+
+- name: Copy monitored hosts configuration file
+  ansible.builtin.template:
+    src: hosts.conf.j2
+    dest: /etc/apcupsd/hosts.conf
+    mode: "0644"
+
+- name: Change wall config to send notifications via pvemailforward
+  ansible.builtin.lineinfile:
+    path: /etc/apcupsd/apccontrol
+    regexp: ^WALL=
+    line: WALL="/usr/bin/pvemailforward"
+
+- name: Set apc daemon status to configured
+  ansible.builtin.lineinfile:
+    path: /etc/default/apcupsd
+    regexp: ^ISCONFIGURED=
+    line: ISCONFIGURED=yes
+
+- name: Enable apcupsd service
+  ansible.builtin.systemd:
+    name: apcupsd
+    state: restarted
+    enabled: true
