@@ -1,6 +1,8 @@
 Ansible Role: Proxmox VE apcupsd Config
 =========
 
+![Lint](https://github.com/simoncaron/ansible-role-pve_apcupsd/actions/workflows/lint.yml/badge.svg)
+
 An Ansible Role that configures apcupsd on Proxmox VE. Notifications are sent using Promox built-in notification tool `pvemailforward` which will send emails to the address configured for the root user of the PVE node by default.
 
 This role was tested on Proxmox VE 7.2.
