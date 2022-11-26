@@ -9,7 +9,7 @@ name: Lint
 jobs:
 
   lint:
-    name: Lint
+    name: Ansible Lint
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase.
