@@ -1,0 +1,5 @@
+---
+- name: Restart apcupsd service
+  ansible.builtin.systemd:
+    name: apcupsd
+    state: restarted

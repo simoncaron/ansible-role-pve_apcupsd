@@ -9,27 +9,30 @@
     src: apcupsd.conf.j2
     dest: /etc/apcupsd/apcupsd.conf
     mode: "0644"
+  notify: Restart apcupsd service
 
 - name: Copy monitored hosts configuration file
   ansible.builtin.template:
     src: hosts.conf.j2
     dest: /etc/apcupsd/hosts.conf
     mode: "0644"
+  notify: Restart apcupsd service
 
 - name: Change wall config to send notifications via pvemailforward
   ansible.builtin.lineinfile:
     path: /etc/apcupsd/apccontrol
     regexp: ^WALL=
     line: WALL="/usr/bin/pvemailforward"
+  notify: Restart apcupsd service
 
 - name: Set apc daemon status to configured
   ansible.builtin.lineinfile:
     path: /etc/default/apcupsd
     regexp: ^ISCONFIGURED=
     line: ISCONFIGURED=yes
+  notify: Restart apcupsd service
 
 - name: Enable apcupsd service
   ansible.builtin.systemd:
     name: apcupsd
-    state: restarted
     enabled: true
