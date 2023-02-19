@@ -17,6 +17,7 @@
     dest: /etc/apcupsd/hosts.conf
     mode: "0644"
   notify: Restart apcupsd service
+  when: pve_apcupsd_monitored_hosts|length > 0
 
 - name: Change wall config to send notifications via proxmox-mail-forward
   ansible.builtin.lineinfile:
