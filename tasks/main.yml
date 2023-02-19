@@ -18,11 +18,11 @@
     mode: "0644"
   notify: Restart apcupsd service
 
-- name: Change wall config to send notifications via pvemailforward
+- name: Change wall config to send notifications via proxmox-mail-forward
   ansible.builtin.lineinfile:
     path: /etc/apcupsd/apccontrol
     regexp: ^WALL=
-    line: WALL="/usr/bin/pvemailforward"
+    line: WALL="/usr/bin/proxmox-mail-forward"
   notify: Restart apcupsd service
 
 - name: Set apc daemon status to configured

@@ -5,7 +5,7 @@ Ansible Role: Proxmox VE apcupsd Config
 [![Ansible Role](https://img.shields.io/ansible/role/60890.svg)](https://galaxy.ansible.com/simoncaron/pve_apcupsd)
 [![Ansible Role Downloads](https://img.shields.io/ansible/role/d/60890.svg)](https://galaxy.ansible.com/simoncaron/pve_apcupsd)
 
-An Ansible Role that configures apcupsd on Proxmox VE. Notifications are sent using Promox built-in notification tool `pvemailforward` which will send emails to the address configured for the root user of the PVE node by default.
+An Ansible Role that configures apcupsd on Proxmox VE. Notifications are sent using Promox built-in notification tool `proxmox-mail-forward` which will send emails to the address configured for the root user of the PVE node by default.
 
 This role was tested on Proxmox VE 7.2.
 
